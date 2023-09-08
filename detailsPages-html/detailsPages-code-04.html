@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Hi小川</title>	
+		<link href="../css/detailsPages.css" rel="stylesheet" type="text/css" /><!--详情页CSS-->
+		<link href="../css/rocketTop.css" rel="stylesheet" type="text/css" /><!--返回顶部-->
+	</head>
+	<body>		
+		<header class="dtTitBg" id="dtTitBg" style="background:url(../img/blogBg-17-1.jpg) no-repeat;
+			" >
+			<div class="homeList">
+				<h3><a href="../index.html">Hi小川</a></h3>
+				<ul class="homeListMenu">
+					<li><a href="#">关于我</a></li>
+					<li><a href="#">生活碎语</a></li>
+					<li><a href="#">技术笔记</a></li>
+					<li><a href="#">技术推荐</a></li>					
+				</ul>
+			</div>
+			<div class="TitContent">
+				<div class="TitContentMain">
+					<div style="height: 50px;"></div>
+					<h2>github绑定域名教程</h2>
+				</div>
+				<div style="margin:50px auto;width: 1px;"></div>
+			</div><!--靠着此元素支撑header的背景图片高度-->
+		</header>
+		<section class="dt-main effect">
+			<div class="dt-content">
+				<p>0x00:</p>
+				<p>我在腾讯云上注册了一个域名：atyoume.com，
+				我已经在GitHub Pages上建立了自己的博客：http://zfcdaemon.github.io/mysite/。
+				现在我希望将atyoume.com映射到http://zfcdaemon.github.io/mysite/。</p>
+				<p>0x01:</p>
+				<p>创建CNAME文件夹在你的个人博客仓库的根目录中新建文件CNAME（注意没有后缀），在该文件增加一行文字，
+				告诉Github Pages服务器你想指定的域名。该域名不能包含前缀信息，即不能添加http:\\前缀。
+				(注：CNAME文件名一定要大写，否则Github Pages服务器无法识别和解析。)</p>
+				<p>0x02:</p>
+				<p>登陆到腾讯云的域名解析控制台，如下图添加相应设置（红色标记区）。</p>
+				<p><img src="../img/yinru/yumingjiexi.png" width="700" height="300"></p>
+				<p>若图片看的不清楚，下面为文字叙述：</p>
+				<p>主机记录:@  --  记录类型:A   --  记录值 : 192.30.252.153</p>
+				<p>主机记录:@ --   记录类型:A  --   记录值   :192.30.252.154</p>
+				<p>主机记录:www -- 记录类型:CNAME  -- 记录值:  username.github.io.</p>
+				<p>用你自己的 Github 用户名替换 username</p>
+				<p>推荐使用 DNSPOD 的服务，使用国外的 DNS 解析服务可能有被墙的风险.</p>
+				<p>0x03:</p>
+				<p>等待你的 DNS 配置生效.</p>
+				<p>完</p>
+				<div class="dtConNotes">
+						<p>注：原创笔记，仅供参考，转载随意</p>
+				</div>
+			</div>
+		</section><!--等待加入评论功能-->
+		<footer class="dtFoote">
+			<div class="footer-inner">
+				<div class="copyright-2">© 2016 atyoume.com 豫ICP备16002211号-1| powered by <a href="#">Daemon</a></div>
+			</div>
+		</footer>
+		<!--返回顶部-->
+		<div id="shape">
+			<div class="shapeColor">
+				<div class="shapeFly">
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/jquery-1.7.2.min.js"></script><!--1.7.2JQ引入-->
+	<script src="../js/rocketTop.js" type="text/javascript"></script><!--返回顶部-->
+</html>

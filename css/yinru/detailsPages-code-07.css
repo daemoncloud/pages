@@ -1,0 +1,161 @@
+@charset "utf-8";
+
+.p-code-07-figure{
+	display: inline-block;
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+	margin: 10px 2px;
+	cursor: pointer;
+}
+.p-code-07-figure img{
+	width: 260px ;
+	height: 100%;
+	border-radius: 5px;
+}
+.p-code-07-figure figcaption{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	color: #FFF;
+	padding: 8px;
+	box-sizing: border-box;
+}
+.p-code-07-figure:hover{
+	transform: translate(0,-7px);
+	transition: all .4s;
+	box-shadow: 5px 5px 4px #666666;
+}
+.p-code-07-figure figcaption h2,p{
+	color: #00BDDC;
+}
+/*返回时也有效果,需要在hover元素上也加入transition*/
+.p-code-07-figure{transition: all .4s;}
+
+/*fig1---平移动画*/
+.fig1 figcaption p{
+	transform:translate(-150px,0);
+	transition: all 0.35s;
+}
+
+.fig1:hover figcaption p{
+	transform: translate(0,0);
+}
+.fig1 figcaption p:nth-of-type(1){
+	transition: all .1s;
+}
+.fig1 figcaption p:nth-of-type(2){
+	transition: all .2s;
+}
+.fig1 figcaption p:nth-of-type(3){
+	transition: all .3s;
+}
+
+/*fig2---扭曲动画*/
+.fig2 figcaption p{
+	transform: skew(90deg);
+	transition: all .3s ease .1s;
+}
+.fig2:hover figcaption p{
+	transform: skew(0deg);
+}
+.fig2 figcaption p:nth-of-type(1){
+	transition: all .1s;
+}
+.fig2 figcaption p:nth-of-type(2){
+	transition: all .2s;
+}
+.fig2 figcaption p:nth-of-type(3){
+	transition: all .3s;
+}
+
+/*fig3---旋转动画*/
+.fig3 figcaption div{
+	width: 80%;
+	height: 80%;
+	border: 2px solid #449DBA;
+	margin-left: 10%;
+	transform: translate(0,-400px) rotate(0deg);
+	transition: all .3s;
+}
+.fig3 figcaption div p{
+	opacity: 0;
+	padding:3px;
+}
+.fig3:hover figcaption div{
+	transform: translate(0,0) rotate(360deg);
+}
+.fig3:hover figcaption div p{
+	opacity: 1;
+}
+.fig3 figcaption div p:nth-of-type(1){
+	transition: all .1s;
+}
+.fig3 figcaption div p:nth-of-type(2){
+	transition: all .2s;
+}
+.fig3 figcaption div p:nth-of-type(3){
+	transition: all .3s;
+}
+
+/*fig4---缩放动画*/
+.fig4 figcaption div{
+	width: 80%;
+	height: 80%;
+	border: 2px solid #449DBA;
+	margin-left: 10%;
+	transform:scale(1.2,1.2);
+	opacity: 0;	
+}
+.fig4 figcaption div p{
+	padding: 5px;
+}
+.fig4:hover figcaption div{
+	width: 80%;
+	height: 80%;
+	border: 2px solid #449DBA;
+	margin-left: 10%;
+	transform:scale(1,1);
+	transition: all .35s;
+	opacity: 1;
+}
+.fig4:hover img{
+	transform:scale(1.2);
+	transition: all .35s;
+	animation-direction:alternate;
+}
+.fig4 img,figcaption div{
+	transition: all .35s;
+}
+
+#code-07-demoBtn1,#code-07-demoBtn2{
+	border:0;background:#FFF ;color:#008000;
+	border-radius: 3px 3px; margin-left: 10px;
+	width: 90px;height: 30px ; line-height: 30px;
+}
+#code-07-demoBtn1:hover,#code-07-demoBtn2:hover{
+	background: #008000;color:#FFF ;
+}
+#code-07-demo-2{display:none;}
+.container{
+		width:800px; height:500px;margin:60px auto; position:relative;
+		}
+
+#code-07-demo-2 img{
+		 padding:10px 10px 15px; background:#fff; border:1px solid #F3F0F0; position: absolute; transition:1s; z-index:1;
+		 }
+#code-07-demo-2 .container img:hover{
+		transform:rotate(0deg); transform:scale(1.7); box-shadow:10px 10px 15px #279DC7; z-index:2;
+		}/*当浏览器不兼容旋转属性的时候可以添加-webkit-transform:rotate(0deg) ;-moz-transform:rotate(0deg);*/
+	.pic1{left:50px;top:10px; transform:rotate(-30deg);}
+	.pic2{left:230px;top:10px; transform:rotate(-30deg);}
+	.pic3{left:410px;top:10px;transform:rotate(-30deg);}
+	.pic4{left:590px;top:10px;transform:rotate(-30deg);}
+	/*.pic5{left:770px;top:10px;transform:rotate(-30deg);}*/
+	.pic6{ left:50px;top:200px;transform:rotate(30deg);}
+	.pic7{left:230px; top:200px;transform:rotate(30deg);}
+	.pic8{left:410px;top:200px;transform:rotate(30deg);}
+	.pic9{left:590px;top:200px;transform:rotate(30deg);}
+/*	.pic10{left:770px;top:200px;transform:rotate(30deg);}*/

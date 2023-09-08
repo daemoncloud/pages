@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>CSS3图片动态提示效果</title>	
+		<link href="../css/detailsPages.css" rel="stylesheet" type="text/css" /><!--详情页CSS-->
+		<link href="../css/yinru/detailsPages-code-07.css" rel="stylesheet" type="text/css" /><!--教程例子的CSS-->		
+		<link href="../css/rocketTop.css" rel="stylesheet" type="text/css" /><!--返回顶部-->
+	</head>
+	<body>		
+		<header class="dtTitBg" id="dtTitBg" style="background:url(../img/blogBg-107.jpg) no-repeat;" >
+			<div class="homeList">
+				<h3><a href="../index.html">Hi小川</a></h3>
+				<ul class="homeListMenu">
+					<li><a href="#">关于我</a></li>
+					<li><a href="#">生活碎语</a></li>
+					<li><a href="#">技术笔记</a></li>
+					<li><a href="#">技术推荐</a></li>					
+				</ul>
+			</div>
+			<div class="TitContent">
+				<div class="TitContentMain">
+					<div style="height: 50px;"></div>
+					<h2>CSS3图片动态提示效果<button id="code-07-demoBtn1">demo1</button><button id="code-07-demoBtn2">demo2</button></h2>
+					<p>涉及到CSS3的transform与transition属性，以及html5的语义化标签figure与figcaption</p>
+				</div>
+				<div style="margin:50px auto;width: 1px;"></div>
+			</div><!--靠着此元素支撑header的背景图片高度-->
+		</header>
+		<section  id="code-07-demo-1" class="dt-main effect"><!--内容区-->
+			<figure class="p-code-07-figure fig1">
+				<img src="../img/yinru/love02.jpg" />
+				<figcaption>
+					<h2>平移动画</h2>
+					<p>图片注释，图片叙述</p>
+					<p>图片注释，图片叙述</p>
+					<p>图片注释，图片叙述</p>
+				</figcaption>
+			</figure>
+<!-- 			<figure class="p-code-07-figure fig2">
+				<img src="../img/yinru/love04.jpg" />
+				<figcaption>
+					<h2>扭曲动画</h2>
+					<p>图片注释，图片叙述</p>
+					<p>图片注释，图片叙述</p>
+					<p>图片注释，图片叙述</p>
+				</figcaption>
+			</figure> -->
+			<figure class="p-code-07-figure fig3">
+				<img src="../img/yinru/xw-01.jpg" />
+				<figcaption>
+					<h2>旋转动画</h2>
+					<div>
+						<p>图片注释，图片叙述</p>
+						<p>图片注释，图片叙述</p>
+						<p>图片注释，图片叙述</p>
+					</div>
+				</figcaption>
+			</figure>
+			<figure class="p-code-07-figure fig4">
+				<img src="../img/yinru/xw-02.jpg" />
+				<figcaption>
+					<h2>缩放动画</h2>
+					<div>
+						<p>图片注释，图片叙述</p>
+						<p>图片注释，图片叙述</p>
+						<p>图片注释，图片叙述</p>
+					</div>
+				</figcaption>
+			</figure>		
+			<hr />
+			<h2>源代码：</h2>
+			<p>html:</p>
+			<img src="../img/code-img/code-08.png"/>
+			<p>CSS:</p>
+			<pre>
+				.p-code-07-figure{
+				display: inline-block;
+				position: relative;
+				height: 180px;
+				overflow: hidden;
+				margin: 10px 2px;
+				cursor: pointer;
+			}
+			.p-code-07-figure img{
+				width: 260px ;
+				height: 180px;
+			}
+			.p-code-07-figure figcaption{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				color: #FFF;
+				padding: 8px;
+				box-sizing: border-box;
+			}
+			.p-code-07-figure:hover{
+				transform: translate(0,-7px);
+				transition: all .4s;
+				box-shadow: 5px 5px 4px #666666;
+			}
+			/*返回时也有效果,需要在hover元素上也加入transition*/
+			.p-code-07-figure{transition: all .4s;}
+			
+			/*fig1---平移动画*/
+			.fig1 figcaption p{
+				transform:translate(-150px,0);
+				transition: all 0.35s;
+			}
+			
+			.fig1:hover figcaption p{
+				transform: translate(0,0);
+			}
+			.fig1 figcaption p:nth-of-type(1){
+				transition: all .1s;
+			}
+			.fig1 figcaption p:nth-of-type(2){
+				transition: all .2s;
+			}
+			.fig1 figcaption p:nth-of-type(3){
+				transition: all .3s;
+			}
+			
+			/*fig2---扭曲动画*/
+			.fig2 figcaption p{
+				transform: skew(90deg);
+				transition: all .3s ease .1s;
+			}
+			.fig2:hover figcaption p{
+				transform: skew(0deg);
+			}
+			.fig2 figcaption p:nth-of-type(1){
+				transition: all .1s;
+			}
+			.fig2 figcaption p:nth-of-type(2){
+				transition: all .2s;
+			}
+			.fig2 figcaption p:nth-of-type(3){
+				transition: all .3s;
+			}
+			
+			/*fig3---旋转动画*/
+			.fig3 figcaption div{
+				width: 80%;
+				height: 80%;
+				border: 2px solid #FFF;
+				margin-left: 10%;
+				transform: translate(0,-200px) rotate(0deg);
+				transition: all .3s;
+			}
+			.fig3 figcaption div p{
+				opacity: 0;
+				padding:3px;
+			}
+			.fig3:hover figcaption div{
+				transform: translate(0,0) rotate(360deg);
+			}
+			.fig3:hover figcaption div p{
+				opacity: 1;
+			}
+			.fig3 figcaption div p:nth-of-type(1){
+				transition: all .1s;
+			}
+			.fig3 figcaption div p:nth-of-type(2){
+				transition: all .2s;
+			}
+			.fig3 figcaption div p:nth-of-type(3){
+				transition: all .3s;
+			}
+			
+			/*fig4---缩放动画*/
+			.fig4 figcaption div{
+				width: 80%;
+				height: 80%;
+				border: 2px solid #FFF;
+				margin-left: 10%;
+				transform:scale(1.2,1.2);
+				opacity: 0;
+				
+			}
+			.fig4:hover figcaption div{
+				width: 80%;
+				height: 80%;
+				border: 2px solid #FFF;
+				margin-left: 10%;
+				transform:scale(1,1);
+				transition: all .35s;
+				opacity: 1;
+			}
+			.fig4:hover img{
+				transform:scale(1.2);
+				transition: all .35s;
+				animation-direction:alternate;
+			}
+			.fig4 img,figcaption div{
+				transition: all .35s;
+			}
+			</pre>
+		</section>
+		<section id="code-07-demo-2" class="dt-main effect">
+		<div class="container">
+		<img class="pic1" src="../img/blogBg-107.jpg" width="150" height="125">
+		<img class="pic2" src="../img/blogBg-107.jpg" width="150" height="125">
+		<img class="pic3" src="../img/blogBg-107.jpg" width="150" height="125">
+		<img class="pic4" src="../img/blogBg-107.jpg" width="150" height="125">
+	       <!-- <img class="pic5" src="../img/blogBg-107.jpg" width="150" height="125">-->
+		<img class="pic6" src="../img/blogBg-107.jpg" width="150" height="125">
+		<img class="pic7" src="../img/blogBg-107.jpg" width="150" height="125">
+		<img class="pic8" src="../img/blogBg-107.jpg" width="150" height="125">
+		<img class="pic9" src="../img/blogBg-107.jpg" width="150" height="125">
+	       <!-- <img class="pic10" src="../img/blogBg-107.jpg" width="150" height="125">-->
+		</div>
+		<p>box-shadow属性：&nbsp;功能:用于给元素的边框添加阴影效果。&nbsp;&nbsp;语法：box-shadow:X轴偏移量&nbsp;Y轴偏移量&nbsp;阴影模糊半径&nbsp;阴影扩展半径&nbsp;阴影颜色&nbsp;投影方式。</p>
+
+		    <p>z-index属性:功能：设置元素的上下层显示顺序。&nbsp;语法：z-index:整数值。（值大会显示在上面，值小会显示在下面。）</p>
+
+		    <p>tansform:&nbsp;功能：使元素变形的属性，其配合rotate（旋转角度）,scale(缩放倍数)，skew（扭曲元素）等参数一起使用。&nbsp;&nbsp;语法：transform:rotate(旋转角度)；transform:scale(缩放倍数)</p>
+
+		    <p>transition:&nbsp;功能：设置元素由样式1变成样式2的过程所需的时间。&nbsp;&nbsp;语法：transition:duration。</p>
+		</section>
+		<footer class="dtFoote">
+			<div class="footer-inner">
+				<div class="copyright-2">© 2016 atyoume.com 豫ICP备16002211号-1| powered by <a href="#">Daemon</a></div>
+			</div>
+		</footer>
+		<!--返回顶部-->
+		<div id="shape">
+			<div class="shapeColor">
+				<div class="shapeFly">
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/jquery-1.7.2.min.js"></script><!--1.7.2JQ引入-->
+	<script src="../js/rocketTop.js" type="text/javascript"></script><!--返回顶部-->
+	<script>
+		$("#code-07-demoBtn1").click(function(){
+			$("#code-07-demo-1").css("display","block");
+			$("#code-07-demo-2").css("display","none");
+		});
+		$("#code-07-demoBtn2").click(function(){
+			$("#code-07-demo-1").css("display","none");
+			$("#code-07-demo-2").css("display","block");
+		});
+	</script>
+
+</html>

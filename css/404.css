@@ -1,0 +1,33 @@
+body{
+	background: url(../img/blogBg-25-404.jpg);
+}
+.er-404{
+	display:block;
+	margin-top:12em;
+    margin-left:48em;
+    width: 550px;
+    height: 300px;
+    box-shadow: 3px 3px 5px 5px #258FB8;
+
+}
+.er-404 h2{
+	font-size:28px;
+	padding:25px;
+	color:#1F292B;
+}
+.er-404 p{
+	text-align: center;
+	color: #202833;
+}
+.er-404 p a{
+	display:inline-block;
+	float: right;
+	margin-right: 30px;
+	text-decoration: none;
+	color: #1F292B;
+	
+}
+.er-404 p a:hover{
+	color: #449DBA;
+	text-decoration: underline;
+}

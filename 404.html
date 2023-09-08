@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>此页面不存在</title>
+		<link href="css/404.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="er-404">
+			<h2>4 0 4  ERROR</h2>
+			<p>啊咧，网站刚刚建立，内容暂未填补。也可能是出现错误(～﹃～)~</p>
+			<p>你就是懒，赶紧补充网站内容~(>_<)~~</p>
+			<br />
+			<p><span id="er-404-time">10</span>&nbsp;秒后返回到主页</p>
+			<br />
+			<p><a href="javascript:back();">点击返回</a></p>
+		</div>
+	</body>
+	<script  type="text/javascript">
+		var num = document.getElementById('er-404-time').innerHTML;
+		function count(){
+			num--;
+			document.getElementById('er-404-time').innerHTML = num;
+			if(num==0){
+				location.assign('https://zfcdaemon.github.io/mySite/');
+			}
+		}
+		setInterval(count,1000);
+		function back(){
+	       window.history.back();
+	   }
+	</script>
+</html>

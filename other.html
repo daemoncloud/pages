@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--音乐插入-->
+		<iframe style="visibility: hidden;" frameborder="no" border="0"
+			 marginwidth="0" marginheight="0" width=1 height=1
+			 src="http://music.163.com/outchain/player?type=2&id=34509509&auto=1&height=32">
+		</iframe>
+		
+		<!--视频链接-->
+		<embed height="415" width="544" quality="high" allowfullscreen="true" 
+			type="application/x-shockwave-flash"
+			src="http://static.hdslb.com/miniloader.swf" flashvars="aid=2052280&page=1"
+			pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">
+		</embed>
+		
+		<!--网站运行天数-->
+		<span id="showDays"></span>
+			<script>
+				var birthDay = new Date("11/21/2016");  // 这里填写网站第一次运行日期 --月-日年
+				var now = new Date();
+				var duration = now.getTime() - birthDay.getTime(); 
+				var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+				document.getElementById("showDays").innerHTML = "本站已运行"+total+"天"; //这里就是总运行天数
+			</script>
+		
+		<!--返回顶部，CSS与JS见目录-->
+		<div id="shape">
+			<div class="shapeColor">
+				<div class="shapeFly">
+				</div>
+			</div>
+		</div>
+		
+		<!--评论功能-->
+		<!--分页功能-->
+		<!--面包屑功能-->
+		<!--文章分享功能-->
+		<!--百度统计-->
+		<!--百度联盟-->
+		
+		<!--有趣的API
+		有趣的CANVAS-->
+		
+		music-->	
+		Staring At You
+		ifyou
+		faded
+		five hunderd miles
+		Worth It
+		Hall of Fame
+		We Can't Stop
+		seve
+		Touch Love
+	</body>
+</html>

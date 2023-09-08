@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Hi小川</title>	
+		<link href="../css/detailsPages.css" rel="stylesheet" type="text/css" /><!--详情页CSS-->
+		<link href="../css/rocketTop.css" rel="stylesheet" type="text/css" /><!--返回顶部-->
+	</head>
+	<body>
+		<header class="dtTitBg" id="dtTitBg" style="background:url(../img/blogBg-17-1.jpg) no-repeat;" >
+			<div class="homeList">
+				<h3><a href="../index.html">Hi小川</a></h3>
+				<ul class="homeListMenu">
+					<li><a href="#">关于我</a></li>
+					<li><a href="#">生活碎语</a></li>
+					<li><a href="#">技术笔记</a></li>
+					<li><a href="#">技术推荐</a></li>
+				</ul>
+			</div>
+			<div class="TitContent">
+				<div class="TitContentMain">
+					<div style="height: 50px;"></div>
+					<h2>关于响应式</h2>
+					<p>响应式布局在很多网站中都会使用到，体现出来的跨设备优越性也显而易见。</p><!--标题说明-->
+					<em>爱折腾，爱音乐。崇尚技术，崇尚开源文化--By 小川</em><!--作者说明-->
+				</div>
+				<div style="margin:50px auto;width: 1px;"></div>
+			</div><!--靠着此元素支撑header的背景图片高度-->
+		</header>
+		<section class="dt-main effect">
+			<div class="dt-content">
+				<h2 class="coder">关于响应式</h2>
+				<p>@media all and(min-width:800px)and(orientation:landscape) { .... } 
+					解释：all--指媒体类型、（默认为all，可省略，其他类型还包括 screen或print等等。） 
+					and--逻辑操作的查询符来连接（还包括not ,or,only等。
+					如上述例句，在and连接中如果返回的布尔值为真，则会应用花括号里面定义的代码，反之则不应用。） </p>
+				<div class="code-img">
+					<img  src="../img/code-img/code-01.jpg"/>
+				</div>
+				<p>CSS3媒体常用属性，其他属性可查官方文档了解。</p>
+				<div class="code-img">
+					<img  src="../img/code-img/code-02.jpg"/>
+				</div>
+				<p></p>
+				<p>关于拿到设计图之后：</p>
+				<p>分析确认不同屏幕宽度下,界面的各个地方是什么样子。 分析结构布局。 
+					确认在某部分数据缺失、异常、过多、过少的情况下是什么个展示 最后确认下所有页面间的跳转关系、
+					哪些地方可以过来，点去哪里，哪些地方是个各界面都一样的 切图</p>
+				<div class="code-img">
+					<img  src="../img/code-img/code-03.jpg"/>
+				</div>
+				<p>构建手机浏览器优化的页面 使用方法：
+					<code class="coder">
+						<meta name="viewport" content="width=device-width">
+					</code>
+				</p>		 
+				<p>解释：设置上述媒体查询，可以将布局视口变为理想视口，页面默认宽度变为设备宽度。
+					//当然还可以在content="width=device-width"的width后面加逗号设置其他属性来优化该方案。</p>
+				<div class="code-img">
+					<img  src="../img/code-img/code-06.jpg"/>
+				</div>
+				<p>viewport视口</p>
+				<div class="code-img">
+					<img  src="../img/code-img/code-04.jpg"/>
+				</div>
+				<p>断点的选择（根据不同的尺寸来设置，而最好不是根据手机的类型来设置）</p>
+				<div class="code-img">
+					<img  src="../img/code-img/code-05.jpg"/>
+				</div>
+				<p>visibility: hidden;会占用原来的位置；display: none，则不会；</p>
+				<p>清楚浮动的三种方法：（1）给盒子末尾中加入带有clear:both属性的div。
+					（2）给父元素盒子加入overflow:auto;或者overflow:hidden。
+					（3）将浮动元素的父元素也浮动--不推荐。</p>
+				<div class="code-img">
+					<img  src="../img/code-img/code-07.jpg"/>
+				</div>
+				<p>
+					
+					meta name="keywords" content="此属性告诉搜索引擎，当用户搜这些关键字的时候，会显示我的网站。"
+					meta name="description" content="此属性告诉搜索引擎，当用户搜到网站后显示的简介信息。"
+					meta----百度站长认证
+					meta----360站长认证
+				</p>
+				<a href="http://www.runoob.com/cssref/css3-pr-mediaquery.html">
+					<p>--或点击参考更多关于媒体查询media的属性...--</p>
+				</a>
+				<!--原创内容添加-->
+				<div class="dtConNotes">
+					<p>注：原创笔记，若发现错误的地方，还请纠正。@<a href="mailto:zhangfuchuan163@163.com?body=">
+					zhangfuchuan163@163.com</a></p>
+				</div>
+			</div>
+		</section><!--等待加入评论功能-->
+		<footer class="dtFoote">
+			<div class="footer-inner">
+				<div class="copyright-2">© 2016 atyoume.com 豫ICP备16002211号-1| powered by <a href="#">Daemon</a></div>
+			</div>
+		</footer>
+		<!--返回顶部-->
+		<div id="shape">
+			<div class="shapeColor">
+				<div class="shapeFly">
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/jquery-1.7.2.min.js"></script><!--1.7.2JQ引入-->
+	<script src="../js/rocketTop.js" type="text/javascript"></script><!--返回顶部-->
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>DOM事件处理程序</title>	
+		<link href="../css/detailsPages.css" rel="stylesheet" type="text/css" /><!--详情页CSS-->
+		<link href="../css/rocketTop.css" rel="stylesheet" type="text/css" /><!--返回顶部-->
+	</head>
+	<body>		
+		<header class="dtTitBg" id="dtTitBg" style="background:url(../img/blogBg-17-1.jpg) no-repeat;
+			" >
+			<div class="homeList">
+				<h3><a href="../index.html">Hi小川</a></h3>
+				<ul class="homeListMenu">
+					<li><a href="#">关于我</a></li>
+					<li><a href="#">生活碎语</a></li>
+					<li><a href="#">技术笔记</a></li>
+					<li><a href="#">技术推荐</a></li>					
+				</ul>
+			</div>
+			<div class="TitContent">
+				<div class="TitContentMain">
+					<div style="height: 50px;"></div>
+					<h2>DOM事件处理程序</h2>
+					<p>DOM 0级事件与DOM 2级事件，以及IE兼容</p>
+				</div>
+				<div style="margin:50px auto;width: 1px;"></div>
+			</div><!--靠着此元素支撑header的背景图片高度-->
+		</header>
+		<section class="dt-main effect">
+			<div class="dt-content">			
+				<h3>1、HTML事件处理程序：</h3>
+				<p>点击按钮触发HTML事件处理</p>
+				<p><input type="button" name="btn" id="btn" value="按钮" onclick="test()" /></p>
+				<p><code>&lt;input type="button" name="" id="btn" value="按钮" onclick=test() /&gt;</code></p>
+				<p><pre>
+					function test(){
+						alert('HTML事件处理程序');
+					}
+				</pre></p>
+				<p>此形式事件处理是吧事件放在HTML代码中，缺点在于修改代码时需要更改多出，HTML与JS紧密的耦合在一起。</p>
+				<h3>2、DOM 0级事件处理程序：</h3>
+				<p>点击按钮触发DOM 0级事件处理</p>
+				<p><input type="button" name="btn2" id="btn2" value="按钮" /></p>
+				<p><pre>
+					var btn2=document.getElementById('btn2');
+					btn2.onclick=function(){
+						alert('DOM 0级事件处理程序');
+					}
+				</pre></p>
+				<p>取消：<code>btn2.onclick=null;</code></p>
+				<h3>2、DOM 2级事件处理程序：</h3>
+				<p>DOM 2级定义了两个方法：</p>
+				<p>用于处理指定和删除事件处理程序的操作addEventListener()和
+				removerEventListner()</p>
+				<p>接受三个参数:要处理的事件名、作为事件处理程序的函数和布尔值（false代表采用事件冒泡，true为事件捕获。）</p>
+				<p>点击按钮触发DOM 2级事件处理</p>
+				<p><input type="button" name="btn3" id="btn3" value="按钮" /></p>
+				<p><pre>
+					var btn3=document.getElementById('btn3');
+					btn3.addEventListener('事件名',函数名或函数段,false或者true);
+				</pre></p>
+				<p>取消:btn3.removeEventListener('事件名',函数名或函数段,false或者true);</p>
+				<p style="color: #DE898C;">但是它不支持IE8及其以下的浏览器.</p>
+				<br />
+				<h3>所以，可以封装一个跨浏览器的事件处理程序代码段，以下：</h3>
+				<br />
+				<pre>
+					&lt;input type="button" name="" id="btn4" value="按钮"/&gt;
+					var btn4=document.getElementById('btn4');
+					var eventUtil={
+						//添加
+						addHandler:function(element,type,handler){
+							if(element.addEventListener){
+								element.addEventListener(type,handler,false);
+							}//如果该浏览器支持addEventListene，
+							else if(element.attachEvent){
+								element.attachEvent('on'+type,handlir);
+							}//如果该浏览器不支持addEventListene，attachEvent仅仅在IE8及以下有用。
+							else{
+								element['on'+type]=handler;
+							}//如果该浏览器支持addEventListene，又不支持attachEvent，使用DOM 0级处理.
+						},
+						//删除(！别忘记‘添加’与‘删除’中间用逗号隔开)
+						removeHandler:function(element,type,handler){
+							if(element.removeEventListener){
+								element.removeEventListener(type,handlir,false);
+							}
+							else if(element.attachEvent){
+								element.detachEvent('on'+type,handlir);
+							}
+							else{
+								element['on'+type]=null;
+							}
+						}
+					}
+					eventUtil.addHandler(btn4,'click',test3);
+			//		eventUtil.removeHandler(btn4,'click',test3);
+				</pre>
+				<p><input type="button" name="btn4" id="btn4" value="按钮" />
+				<hr />
+				<p>阻止事件冒泡：</p>
+				<code>
+					event.stopPropagtion()
+				</code>
+				<p>阻止事件的默认行为：例如a的跳转行为。</p>
+				<code>
+					evet.preventDefault();
+				</code>
+				<div class="dtConNotes">
+						<p>注：原创笔记，仅供参考</p>
+					<p><a href="http://www.imooc.com/learn/138" target="_blank">有关DOM事件处理的教程</a></p>
+				</div>
+			</div>
+		</section><!--等待加入评论功能-->
+		<footer class="dtFoote">
+			<div class="footer-inner">
+				<div class="copyright-2">© 2016 atyoume.com 豫ICP备16002211号-1| powered by <a href="#">Daemon</a></div>
+			</div>
+		</footer>
+		<!--返回顶部-->
+		<div id="shape">
+			<div class="shapeColor">
+				<div class="shapeFly">
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/jquery-1.7.2.min.js"></script><!--1.7.2JQ引入-->
+	<script src="../js/rocketTop.js" type="text/javascript"></script><!--返回顶部-->
+	<script>
+//	HTML事件处理程序
+		function test(){
+			alert('HTML事件处理程序');
+		}
+		
+//DOM 0级事件处理程序
+		var btn2=document.getElementById('btn2');
+		btn2.onclick=function(){
+			alert('DOM 0级事件处理程序')	;		
+		}
+		//		btn2.onclick=null;
+
+//DOM 2级事件处理程序
+		//不支持IE8及其以下版本
+		function test3(){
+			alert('DOM 2级事件处理程序');
+		}
+		var btn3=document.getElementById('btn3');
+		btn3.addEventListener('click',test3,false);//不加on
+
+//跨浏览器的事件处理程序代码段.
+		var btn4=document.getElementById('btn4');
+		var eventUtil={
+			//添加
+			addHandler:function(element,type,handler){
+				if(element.addEventListener){
+					element.addEventListener(type,handler,false);
+				}//如果该浏览器支持addEventListene，
+				else if(element.attachEvent){
+					element.attachEvent('on'+type,handlir);
+				}//如果该浏览器不支持addEventListene，attachEvent仅仅在IE8及以下有用。
+				else{
+					element['on'+type]=handler;
+				}//如果该浏览器支持addEventListene，又不支持attachEvent，使用DOM 0级处理.
+			},
+			//删除
+			removeHandler:function(element,type,handler){
+				if(element.removeEventListener){
+					element.removeEventListener(type,handlir,false);
+				}
+				else if(element.attachEvent){
+					element.detachEvent('on'+type,handlir);
+				}
+				else{
+					element['on'+type]=null;
+				}
+			}
+		}
+		eventUtil.addHandler(btn4,'click',test3);
+//		eventUtil.removeHandler(btn4,'click',test3);
+	</script>
+</html>
